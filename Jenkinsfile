@@ -17,8 +17,8 @@ node {
             // Perform Chart packaging
             sh "helm dependency update ./test/"
             sh "helm package --version 1.0.0 ./test/"
-            sh "git remote set-url origin https://pegaautomationuser:${AUTOMATION_APIKEY}@github.com/pegaautomationuser/helmcharts.git"
-            sh "git config remote.origin.url https://pegaautomationuser:${AUTOMATION_APIKEY}@github.com/pegaautomationuser/helmcharts.git"
+            sh "git remote set-url origin https://github.com/pegaautomationuser/helmcharts.git"
+            sh "git config remote.origin.url https://github.com/pegaautomationuser/helmcharts.git"
             sh "git clone https://pegaautomationuser:${AUTOMATION_APIKEY}@github.com/pegaautomationuser/helmcharts.git --branch=gh-pages gh-pages"
             sh "mv test-1.0.0.tgz gh-pages/"
             sh "cd gh-pages"
