@@ -28,7 +28,7 @@ node {
             sh "git status"
             sh "git add ."
             sh "git commit -m \"Jenkins build to publish test artefacts\""
-            sh "git push --mirror https://pegaautomationuser:${AUTOMATION_APIKEY}@github.com/pegaautomationuser/helmcharts.git"
+            sh "git push --mirror https://pegaautomationuser:${AUTOMATION_APIKEY}@github.com/pegaautomationuser/helmcharts.git gh-pages:gh-pages"
             } 
       }
   }
