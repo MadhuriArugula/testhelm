@@ -23,7 +23,7 @@ node {
             sh "ls -al"
             sh "git clone https://pegaautomationuser:${AUTOMATION_APIKEY}@github.com/pegaautomationuser/helmcharts.git --branch=gh-pages gh-pages"
             sh "mv test-1.0.0.tgz gh-pages/"
-            sh "cd gh-pages"
+            sh "cd $PWD/gh-pages"
             sh "git remote -v"
             sh "pwd"
             sh "ls -al"
