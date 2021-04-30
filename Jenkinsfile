@@ -27,6 +27,7 @@ node {
             sh "git config user.email pegaautomationuser@gmail.com"
             sh "git config user.name ${AUTOMATION_USERNAME}"
             sh "git status"
+            sh "git remote -v"
             sh "git add ."
             sh "git commit -m \"Jenkins build to publish test artefacts\""
             sh "git push -u origin gh-pages"
