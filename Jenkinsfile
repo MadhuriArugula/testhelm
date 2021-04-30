@@ -28,7 +28,8 @@ node {
             sh "ls -al"
             sh "cd gh-pages"
             sh "pwd"
-            sh "git remote -v"
+            dir("gh-pages"){
+              sh "git remote -v"
             sh "pwd"
             sh "ls -al"
             sh "helm repo index --merge index.yaml --url https://pegaautomationuser.github.io/helmcharts/ ."
@@ -40,6 +41,8 @@ node {
             sh "git add ."
             sh "git commit -m \"Jenkins build to publish test artefacts\""
             sh "git push -u origin gh-pages"
+            } 
+            
             } 
       }
   }
