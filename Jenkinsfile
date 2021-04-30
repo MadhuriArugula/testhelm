@@ -15,13 +15,18 @@ node {
             withCredentials([usernamePassword(credentialsId: "helmautomation",
               passwordVariable: 'AUTOMATION_APIKEY', usernameVariable: 'AUTOMATION_USERNAME')]) {
             // Perform Chart packaging
+            sh "git remote -v"
             sh "helm dependency update ./test/"
             sh "helm package --version 1.0.0 ./test/"
-            sh "git remote set-url origin https://github.com/pegaautomationuser/helmcharts.git"
-            sh "git config remote.origin.url https://github.com/pegaautomationuser/helmcharts.git"
+            // sh "git remote set-url origin https://github.com/pegaautomationuser/helmcharts.git"
+            // sh "git config remote.origin.url https://github.com/pegaautomationuser/helmcharts.git"
+            sh "ls -al"
             sh "git clone https://pegaautomationuser:${AUTOMATION_APIKEY}@github.com/pegaautomationuser/helmcharts.git --branch=gh-pages gh-pages"
             sh "mv test-1.0.0.tgz gh-pages/"
             sh "cd gh-pages"
+            sh "git remote -v"
+            sh "pwd"
+            sh "ls -al"
             sh "helm repo index --merge index.yaml --url https://pegaautomationuser.github.io/helmcharts/ ."
             sh "cat index.yaml"    
             sh "git config user.email pegaautomationuser@gmail.com"
