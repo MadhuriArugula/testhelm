@@ -22,6 +22,8 @@ node {
             // sh "git config remote.origin.url https://github.com/pegaautomationuser/helmcharts.git"
             sh "ls -al"
             sh "git clone https://pegaautomationuser:${AUTOMATION_APIKEY}@github.com/pegaautomationuser/helmcharts.git --branch=gh-pages gh-pages"
+            sh "pwd"
+            sh "env | grep PWD"
             sh "mv test-1.0.0.tgz gh-pages/"
             sh "cd $PWD/gh-pages"
             sh "git remote -v"
